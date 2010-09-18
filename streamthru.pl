@@ -28,20 +28,19 @@ while (my $C_Sock = $S_Sock->accept){
 	die "Fork Failed: $!\n" unless defined ($pid = fork());
 	if($pid == 0){ #Child Process!
 		$S_Sock->close; #done w/ this now
-		  #play_songs($C_Sock);
 		print $C_Sock "HTTP/1.0 200 OK\n";
 		print $C_Sock "Content-Type: audio/x-wav\n";
 		print $C_Sock "Cache-Control: no-cache\n";
 		print $C_Sock "Pragma: no-cache\n";
-		print $C_Sock "Connection: close \n";
-		print $C_Sock "x-audiocast-name: MP3R4ND0N\n\n";
+		print $C_Sock "Connection: persistent\n";
+		print $C_Sock "x-audiocast-name: STREAMTHRU\n\n";
 
                 binmode STDIN;
 		my $read_status = 1;
 		my $print_status = 1;
 		my $chunk;
 		while($read_status && $print_status){
-			$read_status = read(STDIN,$chunk,1024);
+			$read_status = read(STDIN,$chunk,4096);
 			if(defined $chunk && defined $read_status){
 				$print_status = print $C_Sock $chunk;
 			}

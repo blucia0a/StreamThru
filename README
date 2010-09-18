@@ -1,0 +1,17 @@
+################################
+#StreamThru.pl
+#Copyright Brandon Lucia 2010
+#
+#I wrote this program so I could listen to records in my living room.
+#The main idea is that you connect something you want to hear somewhere
+#else to your computer's default line in or microphone or whatever (the
+#default input).  Then you run capture.sh, which will grab the audio from
+#that thing (using sox).  Pipe the output of capture.sh to streamthru.pl.
+#Then, go into the other room with your other computer, and run
+#
+#  curl <host running streamthru.pl>:8000 | play -b -u -a -c2 -4 -twav -r44100 -V10 -
+#
+#All those options to `play` match the ones in capture.sh.  V10 makes the 
+#volume increase by a factor of 10.  you can read the docs on sox.
+#
+##################################

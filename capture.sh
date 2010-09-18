@@ -1,2 +1,2 @@
 #!/bin/bash
-rec -b -c2 -u -a -r44100 -traw - -twav -
+rec -b -c2 -u -a -r44100 -twav -
