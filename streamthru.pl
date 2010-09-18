@@ -29,7 +29,7 @@ while (my $C_Sock = $S_Sock->accept){
 	if($pid == 0){ #Child Process!
 		$S_Sock->close; #done w/ this now
 		print $C_Sock "HTTP/1.0 200 OK\n";
-		print $C_Sock "Content-Type: audio/x-wav\n";
+		print $C_Sock "Content-Type: audio/x-mp3\n";
 		print $C_Sock "Cache-Control: no-cache\n";
 		print $C_Sock "Pragma: no-cache\n";
 		print $C_Sock "Connection: persistent\n";
