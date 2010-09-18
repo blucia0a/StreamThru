@@ -1,4 +1,16 @@
 #!/usr/bin/perl -w
+
+################################
+#StreamThru.pl
+#Copyright Brandon Lucia 2010
+#
+#A simple stream-to-stream audio processing script.
+#This script expects .wav encoded audio with a valid RIFF
+#header. 
+#
+#The preferred input to this script is output from the 
+#accompanying shell script capture.sh
+##########################################################
 use strict;
 use IO::Socket;
 
